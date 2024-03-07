@@ -1,17 +1,23 @@
 from abc import ABC, abstractmethod
+from pathlib import Path
+from typing import List, Union
 
-from src.utils.logger import Logger
+import pandas as pd
 
 
 class BaseDataLoader(ABC):
-    def __init__(self, *args, **kwargs):
-        self.logger = Logger().get_logger()
-        self.logger.info(f"Initializing {self.__class__.__name__} data loader")
-
     @abstractmethod
-    def load_data(self, *args, **kwargs):
-        pass
+    def load_data(self, file: Union[str, List, Path], *args, **kwargs) -> pd.DataFrame:
+        """
+        Loads data from the specified path and returns a Pandas DataFrame.
 
-    @abstractmethod
-    def read_data(self, *args, **kwargs):
+        Args:
+            data_path (str): The path to the data source (file, URL, etc.).
+
+        Returns:
+            pd.DataFrame: The loaded data as a Pandas DataFrame.
+
+        Raises:
+            NotImplementedError: If the subclass does not implement this method.
+        """
         pass
