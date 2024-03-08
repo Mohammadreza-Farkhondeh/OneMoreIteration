@@ -25,7 +25,19 @@ class BreastCancerDataLoader(BaseDataLoader):
         Returns:
             pd.DataFrame: The loaded and preprocessed data.
         """
+        data_path = "../data/breast-cancer.data"
+        headers = [
+            "Class",
+            "age",
+            "menopause",
+            "tumor-size",
+            "inv-nodes",
+            "node-caps",
+            "deg-malig",
+            "breast",
+            "breast-quad",
+            "irradiat",
+        ]
 
-        data = pd.read_csv(self.data_path)
-
-        return data
+        df = pd.read_csv(data_path, header=None, names=headers)
+        return df
