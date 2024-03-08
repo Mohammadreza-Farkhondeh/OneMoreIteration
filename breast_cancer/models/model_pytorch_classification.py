@@ -3,13 +3,25 @@ from torch import nn
 
 
 class Model(nn.Module):
-    pass
+    def __init__(self, input_dim, hidden_dim, output_dim):
+        super().__init__()
+        self.linear1 = nn.Linear(input_dim, hidden_dim)
+        self.activation1 = nn.Sigmoid()
+        self.linear2 = nn.Linear(hidden_dim, output_dim)
+        self.activation2 = nn.Sigmoid()
+
+    def forward(self, x):
+        x = self.linear1(x)
+        x = self.activation1(x)
+        x = self.linear2(x)
+        x = self.activation2(x)
+        return x
 
 
 class PytorchModel:
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.classifier = Model().to(self.device)
+        self.classifier = Model(9, 6, 1).to(self.device)
         self.loss_fn = nn.BCELoss()
         self.optimizer = torch.optim.Adam(self.classifier.parameters())
 
@@ -31,4 +43,4 @@ class PytorchModel:
         from sklearn.metrics import roc_auc_score
 
         auc = roc_auc_score(y_test_tensor.cpu(), y_pred.cpu().detach().numpy())
-        return f"AUC-ROC: {auc:.4f}"  # Assuming your model outputs probabilities
+        return f"AUC-ROC: {auc:.4f}"
