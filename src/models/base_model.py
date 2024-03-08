@@ -55,7 +55,6 @@ class BaseModel(ABC):
 
         raise NotImplementedError("Subclasses must implement this method")
 
-    # Optional methods for specific functionalities
     def save(self, path: str) -> None:
         """
         Saves the trained model to disk.

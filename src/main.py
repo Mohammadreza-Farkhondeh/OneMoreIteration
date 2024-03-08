@@ -1,3 +1,7 @@
+from typing import List, Union
+
+from sklearn.model_selection import train_test_split
+
 from src.data.loaders import BaseDataLoader
 from src.data.preprocessors import BaseDataPreprocessor
 from src.models import BaseModel
@@ -9,6 +13,7 @@ class Main:
         data_loader: BaseDataLoader,
         preprocessor: BaseDataPreprocessor,
         model: BaseModel,
+        target_column: Union[List, str],
     ):
         """
         Initializes the ML project with data loader, preprocessor, and model objects.
@@ -22,6 +27,7 @@ class Main:
         self.data_loader = data_loader
         self.preprocessor = preprocessor
         self.model = model
+        self.target_column = target_column
 
     def run(self, data_path: str):
         """
@@ -41,26 +47,22 @@ class Main:
         if not isinstance(self.model, BaseModel):
             raise ValueError("model must be an instance of BaseModel")
 
-        # Load data
         data = self.data_loader.load_data(data_path)
 
-        # Preprocess data (assuming fit and transform are implemented)
         preprocessed_data = self.preprocessor.fit(data).transform(data)
+        train_data, test_data = train_test_split(
+            preprocessed_data, test_size=0.2, random_state=42
+        )
 
-        # Separate features and target variables
-        X = preprocessed_data.drop(
-            "target_column", axis=1
-        )  # Replace 'target_column' with your actual target column name
-        y = preprocessed_data["target_column"]
+        X = train_data.drop(self.target_column, axis=1)
+        y = train_data[self.target_column]
 
-        # Train the model
         self.model.fit(X, y)
 
-        # Optionally evaluate the model
-        evaluation_metrics = self.model.evaluate(X, y)
+        X_test = test_data.drop(self.target_column, axis=1)
+        y_test = test_data[self.target_column]
+
+        evaluation_metrics = self.model.evaluate(X_test, y_test)
         print(f"Evaluation Metrics: {evaluation_metrics}")
 
-        # Optionally make predictions on new data (replace with your prediction logic)
-        # new_data = ...  # Load or prepare new data
-        # predictions = self.model.predict(new_data)
-        # print(f"Predictions: {predictions}")
+        return self.model
