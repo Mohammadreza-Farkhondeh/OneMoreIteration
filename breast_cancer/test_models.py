@@ -24,20 +24,19 @@ X_test = test_data.drop(TARGET_COLUMN, axis=1)
 y_test = test_data[TARGET_COLUMN]
 
 models = {
-    "PytorchModel": "model_pytorch_classification",
-    "SklearnModel": "model_sklearn_classification",
-    "TensorflowModel": "model_tensorflow_classification",
-    "LogisticRegressionModel": "model_logistic_regression_classification",
-    "SVModel": "model_svm_classification",
-    "DesicionTreeModel": "model_decision_tree_classification",
-    "RandomForestModel": "model_random_forest_classification",
-    "KNeighborsModel": "model_kneighbors_classification",
-    "NaiveBayesModel": "model_naive_bayes_classification",
-    "XgboostModel": "model_xgboost_classification",
-    "LightgbmModel": "model_lightgbm_classification",
-    "CatboostModel": "model_catboost_classification",
-    "H2oModel": "model_h2o_classification",
-    "PycaretModel": "model_pycaret_classification",
+    "PytorchModel": "models.model_pytorch_classification",
+    "TensorflowModel": "models.model_tensorflow_classification",
+    "LogisticRegressionModel": "models.model_logistic_regression_classification",
+    "SVModel": "models.model_svm_classification",
+    "DesicionTreeModel": "models.model_decision_tree_classification",
+    "RandomForestModel": "models.model_random_forest_classification",
+    "KNeighborsModel": "models.model_kneighbors_classification",
+    "NaiveBayesModel": "models.model_naive_bayes_classification",
+    "XgboostModel": "models.model_xgboost_classification",
+    "LightgbmModel": "models.model_lightgbm_classification",
+    "CatboostModel": "models.model_catboost_classification",
+    "H2oModel": "models.model_h2o_classification",
+    "PycaretModel": "models.model_pycaret_classification",
 }
 
 for model, module_name in models.items():
