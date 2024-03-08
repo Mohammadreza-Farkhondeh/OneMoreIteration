@@ -29,7 +29,7 @@ class Main:
         self.model = model
         self.target_column = target_column
 
-    def run(self, data_path: str):
+    def run(self):
         """
         Runs the entire machine learning pipeline.
 
