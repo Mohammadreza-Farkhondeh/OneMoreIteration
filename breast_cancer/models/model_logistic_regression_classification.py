@@ -1,16 +1,9 @@
 from sklearn.linear_model import LogisticRegression
 
-<<<<<<< HEAD
-from src.main import Main
-
-
-class LogisticRegressionModel(Main):
-=======
 from src.models import BaseModel
 
 
 class LogisticRegressionModel(BaseModel):
->>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         self.classifier = LogisticRegression()
 

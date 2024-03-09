@@ -1,16 +1,9 @@
 from pycaret.classification import *
 
-<<<<<<< HEAD
-from src.main import Main
-
-
-class PycaretModel(Main):
-=======
 from src.models import BaseModel
 
 
 class PycaretModel(BaseModel):
->>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         pass
 

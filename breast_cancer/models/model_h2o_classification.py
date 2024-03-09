@@ -1,16 +1,9 @@
 import h2o
 
-<<<<<<< HEAD
-from src.main import Main
-
-
-class H2oModel(Main):
-=======
 from src.models import BaseModel
 
 
 class H2oModel(BaseModel):
->>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         h2o.init()
 

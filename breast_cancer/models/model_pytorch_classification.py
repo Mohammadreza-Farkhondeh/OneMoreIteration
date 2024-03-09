@@ -1,11 +1,7 @@
 import torch
 from torch import nn
 
-<<<<<<< HEAD
-from src.main import Main
-=======
 from src.models import BaseModel
->>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
 
 
 class Model(nn.Module):
@@ -24,11 +20,7 @@ class Model(nn.Module):
         return x
 
 
-<<<<<<< HEAD
-class PytorchModel(Main):
-=======
 class PytorchModel(BaseModel):
->>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.classifier = Model(9, 6, 1).to(self.device)

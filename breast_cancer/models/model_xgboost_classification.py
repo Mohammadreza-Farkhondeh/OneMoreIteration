@@ -1,16 +1,9 @@
 import xgboost as xgb
 
-<<<<<<< HEAD
-from src.main import Main
-
-
-class XgboostModel(Main):
-=======
 from src.models import BaseModel
 
 
 class XgboostModel(BaseModel):
->>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         self.model = xgb.XGBClassifier()
 
