@@ -1,7 +1,9 @@
 from sklearn.ensemble import RandomForestClassifier
 
+from src.models import BaseModel
 
-class RandomForestModel:
+
+class RandomForestModel(BaseModel):
     def __init__(self):
         self.classifier = RandomForestClassifier()
 

@@ -1,7 +1,9 @@
 from catboost import CatBoostClassifier
 
+from src.models import BaseModel
 
-class CatboostModel:
+
+class CatboostModel(BaseModel):
     def __init__(self):
         self.model = CatBoostClassifier()
 

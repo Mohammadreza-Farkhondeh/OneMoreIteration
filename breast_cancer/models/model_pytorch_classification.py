@@ -1,6 +1,8 @@
 import torch
 from torch import nn
 
+from src.models import BaseModel
+
 
 class Model(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
@@ -18,7 +20,7 @@ class Model(nn.Module):
         return x
 
 
-class PytorchModel:
+class PytorchModel(BaseModel):
     def __init__(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.classifier = Model(9, 6, 1).to(self.device)

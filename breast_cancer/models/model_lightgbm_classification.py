@@ -1,7 +1,9 @@
 import lightgbm as lgb
 
+from src.models import BaseModel
 
-class LightgbmModel:
+
+class LightgbmModel(BaseModel):
     def __init__(self):
         self.model = lgb.LGBMClassifier()
 

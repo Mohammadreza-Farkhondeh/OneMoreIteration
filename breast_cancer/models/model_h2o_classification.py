@@ -1,7 +1,9 @@
 import h2o
 
+from src.models import BaseModel
 
-class H2oModel:
+
+class H2oModel(BaseModel):
     def __init__(self):
         h2o.init()
 

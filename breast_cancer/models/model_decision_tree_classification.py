@@ -1,7 +1,9 @@
 from sklearn.tree import DecisionTreeClassifier
 
+from src.models import BaseModel
 
-class DecisionTreeModel:
+
+class DecisionTreeModel(BaseModel):
     def __init__(self):
         self.classifier = DecisionTreeClassifier()
 
