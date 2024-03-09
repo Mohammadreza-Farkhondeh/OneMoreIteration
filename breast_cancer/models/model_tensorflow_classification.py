@@ -1,11 +1,13 @@
 import tensorflow as tf
 
+from src.main import Main
+
 
 class Model(tf.Module):
     pass
 
 
-class TensorflowModel:
+class TensorflowModel(Main):
     def __init__(self):
         self.model = Model()
         self.model.compile(

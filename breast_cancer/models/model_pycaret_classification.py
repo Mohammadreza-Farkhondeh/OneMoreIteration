@@ -1,7 +1,9 @@
 from pycaret.classification import *
 
+from src.main import Main
 
-class PycaretModel:
+
+class PycaretModel(Main):
     def __init__(self):
         pass
 

@@ -1,7 +1,9 @@
 from sklearn.svm import SVC
 
+from src.main import Main
 
-class SVCModel:
+
+class SVCModel(Main):
     def __init__(self):
         self.classifier = SVC()
 

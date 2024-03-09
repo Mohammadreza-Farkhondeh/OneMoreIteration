@@ -1,7 +1,9 @@
 import xgboost as xgb
 
+from src.main import Main
 
-class XgboostModel:
+
+class XgboostModel(Main):
     def __init__(self):
         self.model = xgb.XGBClassifier()
 
