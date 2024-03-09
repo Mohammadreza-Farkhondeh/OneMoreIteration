@@ -1,9 +1,16 @@
 from sklearn.svm import SVC
 
+<<<<<<< HEAD
 from src.main import Main
 
 
 class SVCModel(Main):
+=======
+from src.models import BaseModel
+
+
+class SVCModel(BaseModel):
+>>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         self.classifier = SVC()
 

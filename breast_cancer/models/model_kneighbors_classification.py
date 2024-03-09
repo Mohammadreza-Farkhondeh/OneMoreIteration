@@ -1,9 +1,16 @@
 from sklearn.neighbors import KNeighborsClassifier
 
+<<<<<<< HEAD
 from src.main import Main
 
 
 class KNeighborsModel(Main):
+=======
+from src.models import BaseModel
+
+
+class KNeighborsModel(BaseModel):
+>>>>>>> a979fe0884f26982df2a6c8345191001a9bdd8b3
     def __init__(self):
         self.classifier = KNeighborsClassifier()
 
